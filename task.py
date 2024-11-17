@@ -50,8 +50,14 @@ class TALScraper:
         completed = self.transformed.copy()
         completed_nums = set(completed.num)
         print(f"completed_nums is {completed_nums}")
+
         feed_nums = self._get_feed_episode_nums()
         print(f"feed_nums is {feed_nums}")
+
+        expecting = set(range(1, max(feed_nums) + 1))
+        print(f"expecting is {expecting}")
+        missing = completed_nums - expecting
+        print(f"missing is {missing}")
 
         self.nums = set(feed_nums - completed_nums)
         print(f"self.nums is {self.nums}")
